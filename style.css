@@ -1,0 +1,443 @@
+/* =========================================================
+   🎨 Dark + Blue Glow Theme for Recipe Book
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* =========================================================
+   🧱 Base + Variables
+   ========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --bg: #0b1220;
+  --panel: #0f1724;
+  --muted: #98a0b3;
+  --text: #e6eef8;
+  --accent: #00aaff;
+  --accent-2: #2bd1ff;
+  --glass: rgba(255,255,255,0.03);
+  --card: #071020;
+  --radius: 12px;
+}
+
+/* =========================================================
+   🖼️ Page Background
+   ========================================================= */
+body {
+  background: url("assets/1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* =========================================================
+   🧭 Navbar
+   ========================================================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(10,18,30,0.6), rgba(8,12,18,0.6));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+/* Navbar Left */
+.title-and-home {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-title {
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: 0.6px;
+}
+
+/* Home Button */
+.home-button {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.home-button:hover {
+  color: var(--text);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 24px rgba(0,170,255,0.12);
+}
+
+/* Navbar Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 30px rgba(0,170,255,0.12);
+}
+
+.nav-link.active {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #021626;
+}
+
+/* =========================================================
+   🔍 Search Section
+   ========================================================= */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 170, 255, 0.12);
+}
+
+.searchBox {
+  width: 420px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.3);
+}
+
+.searchBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #021626;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,170,255,0.12);
+}
+
+/* Placeholder */
+.searchBox::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   🍽️ Recipe Section
+   ========================================================= */
+main {
+  flex: 1;
+  padding: 28px 20px 40px;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: start;
+  justify-content: center;
+}
+
+.recipe-container h2 {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.recipe {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 260px;
+  max-width: 300px;
+}
+
+.recipe:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 170, 255, 0.4);
+}
+
+.recipe img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe h3 {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.recipe p {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.recipe button {
+  margin-top: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(0, 170, 255, 0.12);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  outline: 1px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* =========================================================
+   📜 Recipe Details Popup
+   ========================================================= */
+.recipe-details {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  max-width: 900px;
+  height: 80vh;
+  background: linear-gradient(180deg, #071022, #0b1726);
+  border-radius: 14px;
+  box-shadow: 0 40px 120px rgba(2,6,23,0.8);
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid rgba(0,170,255,0.06);
+}
+
+.recipe-details-content {
+  padding: 6px 8px;
+}
+
+.recipeName {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.IngredientList li {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+.recipe-close-btn {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #021626;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(0,170,255,0.14);
+}
+
+/* =========================================================
+   🎬 Video Section
+   ========================================================= */
+.videos-page .videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  border: 0;
+}
+
+.video-card {
+  background: #0a0a0a;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 255, 0.4);
+}
+
+.video-wrap.restricted {
+  position: relative;
+  height: 250px;
+  border-radius: 12px;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.yt-logo {
+  width: 90px;
+  opacity: 0.8;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.video-wrap.restricted:hover .yt-logo {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.video-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #fff;
+}
+
+/* =========================================================
+   👥 About Page
+   ========================================================= */
+.about-page .team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.team-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border: 3px solid rgba(0,170,255,0.08);
+}
+
+/* =========================================================
+   ⚡ Text & Glow Enhancements
+   ========================================================= */
+h1, h2, h3, p, .recipeName, .search-section h2 {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+/* =========================================================
+   🦶 Footer
+   ========================================================= */
+footer {
+  padding: 18px;
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* =========================================================
+   📱 Responsive
+   ========================================================= */
+@media (max-width: 720px) {
+  .site-nav { flex-direction: column; align-items: stretch; gap: 12px; padding: 12px; }
+  .search-form { width: 100%; display: flex; }
+  .recipe-details { width: 95%; height: 80vh; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .recipe img { height: 160px; }
+}
+
+
+/* Title heading above results */
+/* Unified title style for both area and search results */
+.results-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff; /* pure white */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 25px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* subtle fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
