@@ -109,8 +109,8 @@ recipeDB
 ```bash
 {
   "_id": "67412a5f2b1f45b14e32a9d1",
-  "fullname": "Rehan S. Bawakhan",
-  "username": "rehan123",
+  "fullname": "Rehan S. B",
+  "username": "admin",
   "password": "$2a$10$xyzHashedValue",
   "__v": 0
 }
